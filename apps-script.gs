@@ -1,7 +1,7 @@
 /**
  * Google Apps Script для приёма ответов формы RSVP свадебного сайта.
- * Вставь этот код в Расширения → Apps Script своей Google-таблицы,
- * затем разверни как веб-приложение (см. RSVP-SETUP.md).
+ * Отдельный проект Apps Script (script.google.com), пишет в таблицу по SHEET_ID.
+ * Разворачивается как веб-приложение (см. RSVP-SETUP.md).
  *
  * ВАЖНО: после любого изменения этого кода нужно заново развернуть:
  * Развернуть → Управление развертываниями → (карандаш) → Версия: Новая → Развернуть.
@@ -11,11 +11,18 @@
 // Оставь пустым ("") — придёт на почту владельца таблицы.
 var NOTIFY_EMAIL = "";
 
+// Таблица «Свадьба Португалия · RSVP», куда пишутся ответы.
+var SHEET_ID = "1wc4RYuhHH5uCmWnxSNfXkvGd482bCEAmujIhj2b2HEI";
+
 function doPost(e) {
   var lock = LockService.getScriptLock();
   lock.waitLock(30000);
   try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+    var sheet = SpreadsheetApp.openById(SHEET_ID).getSheets()[0];
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(['Дата', 'Имя', 'Статус', 'Дни', 'Напитки', 'Откуда', 'Сообщение', 'Страница']);
+      sheet.setFrozenRows(1);
+    }
 
     var data = {};
     try {

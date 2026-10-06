@@ -1110,10 +1110,13 @@
         width: 250px;
       }
 
-      .equation {
-        top: 240px;
-        max-width: 420px;
-        font-size: 34px;
+      /* between the polaroids there's only ~300px — put the caption under them */
+      .couple>.equation {
+        top: auto;
+        bottom: 46px;
+        max-width: 720px;
+        z-index: 3;
+        font-size: 32px;
       }
 
       /* program: three days in three columns */

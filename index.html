@@ -672,11 +672,6 @@
       color: var(--muted);
     }
 
-    /* ================= Side postcards (wide screens) ================= */
-    .side {
-      display: none;
-    }
-
     /* ================= Reveal ================= */
     .reveal {
       opacity: 0;
@@ -840,33 +835,6 @@
       }
     }
 
-    @media (min-width: 1280px) {
-      .side {
-        display: block;
-        position: absolute;
-        width: 160px;
-        padding: 8px 8px 30px;
-        background: var(--foam);
-        box-shadow: 0 16px 34px rgba(20, 40, 50, 0.2);
-        z-index: 5;
-      }
-
-      .side div {
-        aspect-ratio: 3 / 4;
-        background-size: cover;
-        background-position: center;
-      }
-
-      .side.l {
-        left: 28px;
-        transform: rotate(-6deg);
-      }
-
-      .side.r {
-        right: 28px;
-        transform: rotate(5deg);
-      }
-    }
   </style>
 </head>
 
@@ -929,7 +897,7 @@
     </header>
 
     <!-- ===== 2. GREETING + CALENDAR (text) ===== -->
-    <section class="band stack reveal" data-block="Greeting" data-side="l" data-side-img="images/hero-pool.jpg">
+    <section class="band stack reveal" data-block="Greeting">
       <svg class="shell"><use href="#i-shell" /></svg>
       <div class="head">
         <div class="label">Приглашение</div>
@@ -977,8 +945,7 @@
     </section>
 
     <!-- ===== 4. PROGRAM (text) ===== -->
-    <section class="band stack program" id="program" data-block="Program" data-side="r"
-      data-side-img="images/villa-terrace.jpg">
+    <section class="band stack program" id="program" data-block="Program">
       <div class="head reveal">
         <div class="label">Три дня</div>
         <h2 class="h2">Программа</h2>
@@ -1025,7 +992,7 @@
     </section>
 
     <!-- ===== 6. DETAILS & HOW TO GET THERE (text) ===== -->
-    <section class="band stack reveal" data-block="Details" data-side="l" data-side-img="images/villa-view.jpg">
+    <section class="band stack reveal" data-block="Details">
       <div class="head">
         <div class="label">Локация</div>
         <h2 class="h2">Детали</h2>
@@ -1083,8 +1050,7 @@
     </section>
 
     <!-- ===== 8. DRESS CODE (text) ===== -->
-    <section class="band stack reveal" id="dress" data-block="Dress Code" data-side="r"
-      data-side-img="images/coast.jpg">
+    <section class="band stack reveal" id="dress" data-block="Dress Code">
       <div class="head">
         <div class="label">17 апреля</div>
         <h2 class="h2">Дресс-код — белый</h2>
@@ -1187,21 +1153,6 @@
       revealEls.forEach(function (el) { el.classList.add("in"); });
     }
 
-    // ===== Открытки по бокам: зигзагом у текстовых блоков (только широкие экраны) =====
-    var page = document.getElementById("page");
-    document.querySelectorAll("[data-side]").forEach(function (sec) {
-      var card = document.createElement("div");
-      card.className = "side " + sec.getAttribute("data-side");
-      card.setAttribute("aria-hidden", "true");
-      card.innerHTML = '<div style="background-image:url(\'' + sec.getAttribute("data-side-img") + '\')"></div>';
-      card._sec = sec;
-      page.appendChild(card);
-    });
-    function placeSides() {
-      document.querySelectorAll(".side").forEach(function (c) { c.style.top = (c._sec.offsetTop + 70) + "px"; });
-    }
-    window.addEventListener("load", placeSides);
-    window.addEventListener("resize", placeSides);
   </script>
 </body>
 

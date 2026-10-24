@@ -391,13 +391,13 @@
 
     /* ================= 3. Couple polaroids on the ocean ================= */
     .couple {
-      height: 700px;
-      background-image: linear-gradient(rgba(16, 52, 62, 0.25), rgba(16, 52, 62, 0.25)), url("images/ocean.jpg");
+      height: 1110px;
+      background-image: linear-gradient(rgba(16, 52, 62, 0.42), rgba(16, 52, 62, 0.42)), url("images/sea-calm.jpg");
     }
 
     .polaroid {
       position: absolute;
-      width: 200px;
+      width: 190px;
       padding: 10px 10px 8px;
       background: var(--foam);
       box-shadow: 0 16px 34px rgba(6, 24, 32, 0.38);
@@ -406,7 +406,7 @@
 
     .polaroid .ph {
       width: 100%;
-      aspect-ratio: 1;
+      aspect-ratio: 4 / 5;
       background-size: cover;
       background-position: center;
     }
@@ -433,23 +433,29 @@
       z-index: 3;
     }
 
-    .pol-groom {
-      left: calc(50% - 178px);
-      top: 66px;
+    .pol-a {
+      left: calc(50% - 172px);
+      top: 72px;
       transform: rotate(-4deg);
     }
 
-    .pol-bride {
-      left: calc(50% - 22px);
-      top: 404px;
+    .pol-b {
+      left: calc(50% - 14px);
+      top: 420px;
       transform: rotate(3deg);
+    }
+
+    .pol-c {
+      left: calc(50% - 164px);
+      top: 724px;
+      transform: rotate(-2deg);
     }
 
     .couple-cap {
       position: absolute;
       left: 0;
       right: 0;
-      top: 320px;
+      top: 352px;
       margin: 0 auto;
       max-width: 240px;
       text-align: center;
@@ -697,11 +703,12 @@
         font-size: 40px;
       }
 
-      .pol-groom {
+      .pol-a,
+      .pol-c {
         left: 12px;
       }
 
-      .pol-bride {
+      .pol-b {
         left: auto;
         right: 12px;
       }
@@ -715,7 +722,7 @@
     /* ================= Tablet: paper sheet over the ocean ================= */
     @media (min-width: 520px) and (max-width: 999px) {
       body {
-        background: #16424e url("images/ocean.jpg") center / cover fixed;
+        background: #16424e url("images/sea-calm.jpg") center / cover fixed;
         padding: 40px 0;
       }
 
@@ -766,25 +773,34 @@
       }
 
       .couple {
-        height: 620px;
+        height: 680px;
       }
 
-      .pol-groom {
-        left: calc(50% - 430px);
+      .polaroid {
+        width: 240px;
+      }
+
+      .pol-a {
+        left: calc(50% - 470px);
+        top: 140px;
+        transform: rotate(-5deg);
+      }
+
+      .pol-b {
+        left: calc(50% - 120px);
+        top: 236px;
+        transform: rotate(2deg);
+      }
+
+      .pol-c {
+        left: calc(50% + 230px);
         top: 120px;
-        width: 260px;
-      }
-
-      .pol-bride {
-        left: calc(50% + 170px);
-        top: 150px;
-        width: 260px;
+        transform: rotate(5deg);
       }
 
       .couple-cap {
-        top: 50%;
-        transform: translateY(-50%);
-        max-width: 280px;
+        top: 140px;
+        max-width: 300px;
       }
 
       .program .days {
@@ -930,16 +946,21 @@
     <!-- ===== 3. COUPLE (image) ===== -->
     <section class="img-band couple" data-block="Polaroids">
       <svg class="wave top" preserveAspectRatio="none"><use href="#w-top" /></svg>
-      <div class="polaroid pol-groom">
+      <div class="polaroid pol-a">
         <span class="tape"></span>
-        <div class="ph" style="background-image: url('images/groom.jpg')"></div>
-        <div class="cap">Вася</div>
+        <div class="ph" style="background-image: url('images/pol-1.jpg')"></div>
+        <div class="cap">океан</div>
       </div>
       <p class="accent couple-cap">любовь, которая родилась в Португалии</p>
-      <div class="polaroid pol-bride">
+      <div class="polaroid pol-b">
         <span class="tape"></span>
-        <div class="ph" style="background-image: url('images/bride.jpg')"></div>
-        <div class="cap">Ксюша</div>
+        <div class="ph" style="background-image: url('images/pol-2.jpg')"></div>
+        <div class="cap">Коста-Нова</div>
+      </div>
+      <div class="polaroid pol-c">
+        <span class="tape"></span>
+        <div class="ph" style="background-image: url('images/pol-3.jpg')"></div>
+        <div class="cap">Прайя-да-Урса</div>
       </div>
       <svg class="wave bottom" preserveAspectRatio="none"><use href="#w-bottom" /></svg>
     </section>
@@ -986,7 +1007,7 @@
       <div class="gallery">
         <div style="background-image: url('images/villa-terrace.jpg')"></div>
         <div style="background-image: url('images/villa-view.jpg')"></div>
-        <div style="background-image: url('images/coast.jpg')"></div>
+        <div style="background-image: url('images/hero-pool.jpg')"></div>
       </div>
       <svg class="wave bottom" preserveAspectRatio="none"><use href="#w-bottom" /></svg>
     </section>
@@ -1099,7 +1120,7 @@
     // ===== Настройки =====
     var WEDDING = new Date("2027-04-17T16:00:00+01:00"); // 17 апреля 2027, Лиссабон (WEST)
     // Ссылка на чат в Telegram (вида https://t.me/+xxxx). Пока пусто — кнопка неактивна.
-    var TG_CHAT = "";
+    var TG_CHAT = "https://t.me/+dpe0KTlkoUU1Zjli";
 
     // ===== Календарь: апрель 2027 (1 апреля — четверг) =====
     var grid = document.getElementById("cal-grid");

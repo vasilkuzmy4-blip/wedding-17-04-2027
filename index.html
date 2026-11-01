@@ -306,7 +306,7 @@
     .hero-date {
       font-family: var(--sans);
       font-size: 13px;
-      letter-spacing: 0.32em;
+      letter-spacing: 0.12em;
     }
 
     /* ================= 2. Greeting + calendar ================= */
@@ -391,14 +391,14 @@
 
     /* ================= 3. Couple polaroids on the ocean ================= */
     .couple {
-      height: 1110px;
+      height: 880px;
       background-image: linear-gradient(rgba(16, 52, 62, 0.42), rgba(16, 52, 62, 0.42)), url("images/sea-calm.jpg");
     }
 
     .polaroid {
       position: absolute;
       width: 190px;
-      padding: 10px 10px 8px;
+      padding: 10px 10px 34px;
       background: var(--foam);
       box-shadow: 0 16px 34px rgba(6, 24, 32, 0.38);
       z-index: 2;
@@ -411,13 +411,6 @@
       background-position: center;
     }
 
-    .polaroid .cap {
-      padding-top: 6px;
-      font-style: italic;
-      font-size: 24px;
-      text-align: center;
-      color: var(--ink);
-    }
 
     /* translucent tape with wavy ends instead of a clip */
     .tape {
@@ -435,33 +428,33 @@
 
     .pol-a {
       left: calc(50% - 172px);
-      top: 72px;
+      top: 76px;
       transform: rotate(-4deg);
     }
 
     .pol-b {
       left: calc(50% - 14px);
-      top: 420px;
+      top: 300px;
       transform: rotate(3deg);
     }
 
     .pol-c {
       left: calc(50% - 164px);
-      top: 724px;
+      top: 528px;
       transform: rotate(-2deg);
     }
 
-    .couple-cap {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 352px;
-      margin: 0 auto;
-      max-width: 240px;
-      text-align: center;
-      color: var(--foam);
-      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
-      z-index: 1;
+    /* greeting on phones: title on one line, slightly smaller text */
+    @media (max-width: 519px) {
+      .greet-title {
+        font-size: 23px;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+      }
+
+      .greet-text {
+        font-size: 17px;
+      }
     }
 
     /* ================= 4. Program ================= */
@@ -773,7 +766,7 @@
       }
 
       .couple {
-        height: 680px;
+        height: 640px;
       }
 
       .polaroid {
@@ -788,7 +781,7 @@
 
       .pol-b {
         left: calc(50% - 120px);
-        top: 236px;
+        top: 170px;
         transform: rotate(2deg);
       }
 
@@ -796,11 +789,6 @@
         left: calc(50% + 230px);
         top: 120px;
         transform: rotate(5deg);
-      }
-
-      .couple-cap {
-        top: 140px;
-        max-width: 300px;
       }
 
       .program .days {
@@ -903,10 +891,10 @@
   <div id="page">
     <!-- ===== 1. HERO (image) ===== -->
     <header class="img-band hero" data-block="Hero">
-      <div class="label">Свадьба · Португалия</div>
+      <div class="label">Свадьба в Португалии</div>
       <div class="hero-main">
         <h1 class="h1">Вася <i>&amp;</i> Ксюша</h1>
-        <div class="hero-date">16 — 18 · 04 · 2027</div>
+        <div class="hero-date">16–18.04.2027</div>
         <p class="accent">Три дня у океана с самыми близкими</p>
       </div>
       <svg class="wave bottom" preserveAspectRatio="none"><use href="#w-bottom" /></svg>
@@ -917,9 +905,9 @@
       <svg class="shell"><use href="#i-shell" /></svg>
       <div class="head">
         <div class="label">Приглашение</div>
-        <h2 class="h2">Привет, дорогие друзья!</h2>
+        <h2 class="h2 greet-title">Привет, дорогие друзья!</h2>
       </div>
-      <p class="measure">
+      <p class="measure greet-text">
         Весной мы хотим осуществить одну из наших самых больших мечт: собрать самых близких людей в
         Португалии и устроить настоящий лагерь для взрослых — чтобы отпраздновать нашу любовь, которая
         родилась как раз-таки здесь, в Португалии.
@@ -949,18 +937,14 @@
       <div class="polaroid pol-a">
         <span class="tape"></span>
         <div class="ph" style="background-image: url('images/pol-1.jpg')"></div>
-        <div class="cap">океан</div>
       </div>
-      <p class="accent couple-cap">любовь, которая родилась в Португалии</p>
       <div class="polaroid pol-b">
         <span class="tape"></span>
         <div class="ph" style="background-image: url('images/pol-2.jpg')"></div>
-        <div class="cap">Коста-Нова</div>
       </div>
       <div class="polaroid pol-c">
         <span class="tape"></span>
         <div class="ph" style="background-image: url('images/pol-3.jpg')"></div>
-        <div class="cap">Прайя-да-Урса</div>
       </div>
       <svg class="wave bottom" preserveAspectRatio="none"><use href="#w-bottom" /></svg>
     </section>

@@ -615,6 +615,15 @@
       border: 1px solid var(--line);
     }
 
+    .dress-photo {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 4 / 5;
+      background: url("images/dresscode.jpg") center / cover no-repeat;
+      /* arch, like the reference */
+      border-radius: 999px 999px 6px 6px;
+    }
+
     /* ================= 9. Join the chat ================= */
     .chat {
       padding-top: calc(var(--band-pad) + var(--wave-h));
@@ -835,6 +844,10 @@
         flex-direction: column;
         align-items: center;
         gap: var(--s4);
+      }
+
+      .dress-photo {
+        max-width: 420px;
       }
 
       .glass {
@@ -1071,6 +1084,7 @@
         <i style="background: #f3ede2"></i>
         <i style="background: #ebe3d5"></i>
       </div>
+      <div class="dress-photo" role="img" aria-label="Гости в белом на вечеринке"></div>
     </section>
 
     <!-- ===== 9. JOIN THE CHAT (image) ===== -->

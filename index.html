@@ -496,13 +496,80 @@
       margin-top: var(--s1);
     }
 
-    .day-photo {
+    /* overlapping polaroid stack inside each program day */
+    .snaps {
+      position: relative;
       width: 100%;
+      max-width: 340px;
+      margin: 0 auto var(--s3);
+      aspect-ratio: 1 / 1.05;
+    }
+
+    .snaps-3 {
+      aspect-ratio: 1 / 1.22;
+    }
+
+    /* desktop: equal stack heights so the three day titles line up */
+    @media (min-width: 1000px) {
+      .snaps-2 {
+        aspect-ratio: 1 / 1.22;
+      }
+
+      .snaps-2 .snap:nth-child(1) {
+        top: 6%;
+      }
+
+      .snaps-2 .snap:nth-child(2) {
+        bottom: 6%;
+      }
+    }
+
+    .snap {
+      position: absolute;
+      width: 62%;
+      padding: 6px 6px 22px;
+      background: var(--foam);
+      box-shadow: 0 10px 24px rgba(20, 40, 50, 0.18);
+    }
+
+    .snap div {
       aspect-ratio: 4 / 5;
-      margin-bottom: var(--s2);
       background-size: cover;
       background-position: center;
-      border-radius: 999px 999px 6px 6px;
+    }
+
+    .snaps-2 .snap:nth-child(1) {
+      left: 0;
+      top: 0;
+      transform: rotate(-4deg);
+    }
+
+    .snaps-2 .snap:nth-child(2) {
+      right: 0;
+      bottom: 0;
+      transform: rotate(4deg);
+    }
+
+    .snaps-3 .snap {
+      width: 56%;
+    }
+
+    .snaps-3 .snap:nth-child(1) {
+      left: 0;
+      top: 0;
+      transform: rotate(-5deg);
+    }
+
+    .snaps-3 .snap:nth-child(2) {
+      right: 0;
+      top: 22%;
+      transform: rotate(4deg);
+    }
+
+    .snaps-3 .snap:nth-child(3) {
+      left: 14%;
+      bottom: 0;
+      transform: rotate(-2deg);
     }
 
     .note {
@@ -980,7 +1047,10 @@
       </div>
       <div class="days">
         <article class="day reveal">
-          <div class="day-photo" role="img" aria-label="Ужин знакомств" style="background-image: url('images/day-1.jpg')"></div>
+          <div class="snaps snaps-2">
+            <div class="snap" role="img" aria-label="Ужин знакомств"><div style="background-image: url('images/day-1.jpg')"></div></div>
+            <div class="snap" role="img" aria-label="Готовим вместе"><div style="background-image: url('images/day-1b.jpg')"></div></div>
+          </div>
           <div class="day-meta"><span class="label">01</span><span class="label">по желанию</span></div>
           <h3 class="h3">Ужин знакомств</h3>
           <div class="accent">пятница, 16 апреля</div>
@@ -994,7 +1064,11 @@
           </div>
         </article>
         <article class="day reveal">
-          <div class="day-photo" role="img" aria-label="Гости в белом" style="background-image: url('images/day-2.jpg')"></div>
+          <div class="snaps snaps-3">
+            <div class="snap" role="img" aria-label="Гости в белом"><div style="background-image: url('images/day-2.jpg')"></div></div>
+            <div class="snap" role="img" aria-label="Танцы"><div style="background-image: url('images/day-2b.jpg')"></div></div>
+            <div class="snap" role="img" aria-label="Прыжок в бассейн"><div style="background-image: url('images/day-2c.jpg')"></div></div>
+          </div>
           <div class="day-meta"><span class="label">02</span><span class="label">главный день</span></div>
           <h3 class="h3">День свадьбы</h3>
           <div class="accent">суббота, 17 апреля</div>
@@ -1003,7 +1077,10 @@
             сменную одежду.</p>
         </article>
         <article class="day reveal">
-          <div class="day-photo" role="img" aria-label="BBQ у бассейна" style="background-image: url('images/day-3.jpg')"></div>
+          <div class="snaps snaps-2">
+            <div class="snap" role="img" aria-label="BBQ"><div style="background-image: url('images/day-3.jpg')"></div></div>
+            <div class="snap" role="img" aria-label="Прогулка"><div style="background-image: url('images/day-3b.jpg')"></div></div>
+          </div>
           <div class="day-meta"><span class="label">03</span><span class="label">отдых</span></div>
           <h3 class="h3">BBQ Party</h3>
           <div class="accent">воскресенье, 18 апреля</div>

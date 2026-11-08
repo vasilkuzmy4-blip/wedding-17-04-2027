@@ -497,36 +497,22 @@
     }
 
     /* overlapping polaroid stack inside each program day */
+    /* overlapping polaroid stack inside each program day */
     .snaps {
       position: relative;
       width: 100%;
       max-width: 340px;
       margin: 0 auto var(--s3);
-      aspect-ratio: 1 / 1.05;
-    }
-
-    .snaps-3 {
       aspect-ratio: 1 / 1.22;
     }
 
-    /* desktop: equal stack heights so the three day titles line up */
-    @media (min-width: 1000px) {
-      .snaps-2 {
-        aspect-ratio: 1 / 1.22;
-      }
-
-      .snaps-2 .snap:nth-child(1) {
-        top: 6%;
-      }
-
-      .snaps-2 .snap:nth-child(2) {
-        bottom: 6%;
-      }
+    .snaps-3 {
+      aspect-ratio: 1 / 1.42;
     }
 
     .snap {
       position: absolute;
-      width: 62%;
+      width: 58%;
       padding: 6px 6px 22px;
       background: var(--foam);
       box-shadow: 0 10px 24px rgba(20, 40, 50, 0.18);
@@ -538,37 +524,60 @@
       background-position: center;
     }
 
+    /* desktop: all stacks the same height so the day titles line up */
+    @media (min-width: 1000px) {
+      .snaps-2 {
+        aspect-ratio: 1 / 1.42;
+      }
+
+      .snaps-2 .snap:nth-child(1) {
+        top: 12%;
+      }
+
+      .snaps-2 .snap:nth-child(2) {
+        top: 40%;
+      }
+    }
+
+    /* two photos: left one on top, right one lower and underneath */
     .snaps-2 .snap:nth-child(1) {
       left: 0;
       top: 0;
+      z-index: 2;
       transform: rotate(-4deg);
     }
 
     .snaps-2 .snap:nth-child(2) {
       right: 0;
-      bottom: 0;
+      top: 26%;
+      width: 54%;
+      z-index: 1;
       transform: rotate(4deg);
     }
 
+    /* three photos: guests top-left, girls further right, pool lowest and underneath */
     .snaps-3 .snap {
-      width: 56%;
+      width: 54%;
     }
 
     .snaps-3 .snap:nth-child(1) {
       left: 0;
       top: 0;
+      z-index: 3;
       transform: rotate(-5deg);
     }
 
     .snaps-3 .snap:nth-child(2) {
-      right: 0;
-      top: 22%;
+      right: -3%;
+      top: 15%;
+      z-index: 2;
       transform: rotate(4deg);
     }
 
     .snaps-3 .snap:nth-child(3) {
-      left: 14%;
-      bottom: 0;
+      left: 16%;
+      top: 47%;
+      z-index: 1;
       transform: rotate(-2deg);
     }
 

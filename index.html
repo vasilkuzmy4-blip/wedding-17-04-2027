@@ -391,14 +391,15 @@
 
     /* ================= 3. Couple polaroids on the ocean ================= */
     .couple {
-      height: 880px;
+      /* phones: three polaroids side by side, slightly overlapping */
+      height: calc(min(100vw, 460px) * 0.62 + 124px);
       background-image: linear-gradient(rgba(16, 52, 62, 0.42), rgba(16, 52, 62, 0.42)), url("images/sea-calm.jpg");
     }
 
     .polaroid {
       position: absolute;
-      width: 190px;
-      padding: 10px 10px 34px;
+      width: 36%;
+      padding: 6px 6px 22px;
       background: var(--foam);
       box-shadow: 0 16px 34px rgba(6, 24, 32, 0.38);
       z-index: 2;
@@ -417,8 +418,8 @@
       position: absolute;
       top: -12px;
       left: 50%;
-      width: 84px;
-      height: 24px;
+      width: 56px;
+      height: 18px;
       transform: translateX(-50%) rotate(-3deg);
       background: rgba(225, 238, 240, 0.72);
       -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 24'%3E%3Cpath d='M4 0 Q0 4 4 8 T4 16 T4 24 H80 Q84 20 80 16 T80 8 T80 0 Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
@@ -427,21 +428,22 @@
     }
 
     .pol-a {
-      left: calc(50% - 172px);
-      top: 76px;
-      transform: rotate(-4deg);
+      left: 3%;
+      top: 78px;
+      transform: rotate(-5deg);
     }
 
     .pol-b {
-      left: calc(50% - 14px);
-      top: 300px;
-      transform: rotate(3deg);
+      left: 32%;
+      top: 104px;
+      transform: rotate(2deg);
+      z-index: 3;
     }
 
     .pol-c {
-      left: calc(50% - 164px);
-      top: 528px;
-      transform: rotate(-2deg);
+      left: 61%;
+      top: 72px;
+      transform: rotate(5deg);
     }
 
     /* greeting on phones: title on one line, slightly smaller text */
@@ -492,6 +494,15 @@
 
     .day p {
       margin-top: var(--s1);
+    }
+
+    .day-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      margin-bottom: var(--s2);
+      background-size: cover;
+      background-position: center;
+      border-radius: 999px 999px 6px 6px;
     }
 
     .note {
@@ -709,16 +720,6 @@
         font-size: 40px;
       }
 
-      .pol-a,
-      .pol-c {
-        left: 12px;
-      }
-
-      .pol-b {
-        left: auto;
-        right: 12px;
-      }
-
       .cd-num {
         font-size: 36px;
         min-width: 46px;
@@ -784,6 +785,12 @@
 
       .polaroid {
         width: 240px;
+        padding: 10px 10px 34px;
+      }
+
+      .tape {
+        width: 84px;
+        height: 24px;
       }
 
       .pol-a {
@@ -973,6 +980,7 @@
       </div>
       <div class="days">
         <article class="day reveal">
+          <div class="day-photo" role="img" aria-label="Ужин знакомств" style="background-image: url('images/day-1.jpg')"></div>
           <div class="day-meta"><span class="label">01</span><span class="label">по желанию</span></div>
           <h3 class="h3">Ужин знакомств</h3>
           <div class="accent">пятница, 16 апреля</div>
@@ -986,6 +994,7 @@
           </div>
         </article>
         <article class="day reveal">
+          <div class="day-photo" role="img" aria-label="Гости в белом" style="background-image: url('images/day-2.jpg')"></div>
           <div class="day-meta"><span class="label">02</span><span class="label">главный день</span></div>
           <h3 class="h3">День свадьбы</h3>
           <div class="accent">суббота, 17 апреля</div>
@@ -994,6 +1003,7 @@
             сменную одежду.</p>
         </article>
         <article class="day reveal">
+          <div class="day-photo" role="img" aria-label="BBQ у бассейна" style="background-image: url('images/day-3.jpg')"></div>
           <div class="day-meta"><span class="label">03</span><span class="label">отдых</span></div>
           <h3 class="h3">BBQ Party</h3>
           <div class="accent">воскресенье, 18 апреля</div>
